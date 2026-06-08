@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.yzhz</groupId>
+        <artifactId>poker-go-server</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>poker-server-module-player</artifactId>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+    <description>player 模块，实现玩家/会员管理、积分流水等功能</description>
+    <dependencies>
+        <dependency>
+            <groupId>com.yzhz</groupId>
+            <artifactId>poker-server-spring-boot-starter-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yzhz</groupId>
+            <artifactId>poker-server-spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yzhz</groupId>
+            <artifactId>poker-server-spring-boot-starter-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yzhz</groupId>
+            <artifactId>poker-server-spring-boot-starter-excel</artifactId>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,2 @@
+com.poker.server.framework.redis.config.PokerServerRedisAutoConfiguration
+com.poker.server.framework.redis.config.PokerServerCacheAutoConfiguration

@@ -1,0 +1,12 @@
+.codegraph/
+.idea/
+.trae/
+.DS_Store
+
+# Java build artifacts
+**/target/
+
+# Node (already covered in poker-go-system/.gitignore, but safe here too)
+node_modules/
+.pnpm-store/
+.turbo/

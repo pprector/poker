@@ -1,0 +1,2 @@
+com.poker.server.framework.mq.redis.config.PokerServerRedisMQProducerAutoConfiguration
+com.poker.server.framework.mq.redis.config.PokerServerRedisMQConsumerAutoConfiguration

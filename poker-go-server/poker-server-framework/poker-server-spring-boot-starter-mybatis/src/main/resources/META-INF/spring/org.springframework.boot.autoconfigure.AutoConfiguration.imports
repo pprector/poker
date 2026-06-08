@@ -1,0 +1,3 @@
+com.poker.server.framework.datasource.config.PokerServerDataSourceAutoConfiguration
+com.poker.server.framework.mybatis.config.PokerServerMybatisAutoConfiguration
+com.poker.server.framework.translate.config.PokerServerTranslateAutoConfiguration

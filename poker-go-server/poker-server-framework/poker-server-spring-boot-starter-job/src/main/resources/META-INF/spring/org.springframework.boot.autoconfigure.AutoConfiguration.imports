@@ -1,0 +1,2 @@
+com.poker.server.framework.quartz.config.PokerServerQuartzAutoConfiguration
+com.poker.server.framework.quartz.config.PokerServerAsyncAutoConfiguration

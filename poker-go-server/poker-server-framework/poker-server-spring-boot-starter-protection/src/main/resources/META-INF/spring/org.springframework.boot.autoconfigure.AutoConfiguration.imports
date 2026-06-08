@@ -1,0 +1,4 @@
+com.poker.server.framework.idempotent.config.PokerServerIdempotentConfiguration
+com.poker.server.framework.lock4j.config.PokerServerLock4jConfiguration
+com.poker.server.framework.ratelimiter.config.PokerServerRateLimiterConfiguration
+com.poker.server.framework.signature.config.PokerServerApiSignatureAutoConfiguration
