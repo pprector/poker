@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.yzhz</groupId>
+        <artifactId>poker-server-framework</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>poker-server-spring-boot-starter-mq</artifactId>
+    <packaging>jar</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>消息队列，支持 Redis 方式</description>
+    <url>https://github.com/YunaiV/ruoyi-vue-pro</url>
+
+    <dependencies>
+        <!-- DB 相关 -->
+        <dependency>
+            <groupId>com.yzhz</groupId>
+            <artifactId>poker-server-spring-boot-starter-redis</artifactId>
+        </dependency>
+
+        <!-- 消息队列相关 -->
+    </dependencies>
+
+</project>

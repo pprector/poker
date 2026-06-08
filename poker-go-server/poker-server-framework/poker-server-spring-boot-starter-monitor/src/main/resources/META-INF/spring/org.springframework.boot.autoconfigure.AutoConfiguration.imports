@@ -1,0 +1,2 @@
+com.poker.server.framework.tracer.config.PokerServerTracerAutoConfiguration
+com.poker.server.framework.tracer.config.PokerServerMetricsAutoConfiguration

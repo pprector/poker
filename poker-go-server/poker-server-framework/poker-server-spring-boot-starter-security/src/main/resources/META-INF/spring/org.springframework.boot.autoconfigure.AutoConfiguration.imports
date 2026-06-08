@@ -1,0 +1,3 @@
+com.poker.server.framework.security.config.PokerServerSecurityAutoConfiguration
+com.poker.server.framework.security.config.PokerServerWebSecurityConfigurerAdapter
+com.poker.server.framework.operatelog.config.PokerServerOperateLogConfiguration

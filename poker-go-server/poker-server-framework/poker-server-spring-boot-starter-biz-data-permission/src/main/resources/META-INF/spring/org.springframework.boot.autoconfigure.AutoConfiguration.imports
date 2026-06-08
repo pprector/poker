@@ -1,0 +1,2 @@
+com.poker.server.framework.datapermission.config.PokerServerDataPermissionAutoConfiguration
+com.poker.server.framework.datapermission.config.PokerServerDeptDataPermissionAutoConfiguration

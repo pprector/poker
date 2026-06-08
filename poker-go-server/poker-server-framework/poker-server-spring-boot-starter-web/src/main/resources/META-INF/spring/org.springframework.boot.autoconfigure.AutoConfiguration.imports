@@ -1,0 +1,7 @@
+com.poker.server.framework.apilog.config.PokerServerApiLogAutoConfiguration
+com.poker.server.framework.jackson.config.PokerServerJacksonAutoConfiguration
+com.poker.server.framework.swagger.config.PokerServerSwaggerAutoConfiguration
+com.poker.server.framework.web.config.PokerServerWebAutoConfiguration
+com.poker.server.framework.xss.config.PokerServerXssAutoConfiguration
+com.poker.server.framework.banner.config.PokerServerBannerAutoConfiguration
+com.poker.server.framework.encrypt.config.PokerServerApiEncryptAutoConfiguration
