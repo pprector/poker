@@ -27,6 +27,8 @@
         <module>poker-server-spring-boot-starter-biz-tenant</module>
         <module>poker-server-spring-boot-starter-biz-data-permission</module>
         <module>poker-server-spring-boot-starter-biz-ip</module>
+
+        <module>poker-server-spring-boot-starter-test</module>
     </modules>
 
     <artifactId>poker-server-framework</artifactId>

@@ -29,5 +29,12 @@
             <groupId>com.yzhz</groupId>
             <artifactId>poker-server-spring-boot-starter-excel</artifactId>
         </dependency>
+
+        <!-- 测试基础设施 -->
+        <dependency>
+            <groupId>com.yzhz</groupId>
+            <artifactId>poker-server-spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

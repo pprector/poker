@@ -14,7 +14,7 @@ NC='\033[0m'
 
 PROJECT_ROOT="$(cd "$(dirname "$0")" && pwd)"
 BACKEND_DIR="$PROJECT_ROOT/poker-go-server"
-FRONTEND_DIR="$PROJECT_ROOT/poker-go-system"
+FRONTEND_DIR="$PROJECT_ROOT/poker-go-admin"
 LOG_DIR="$PROJECT_ROOT/logs"
 
 BACKEND_PORT=48080
@@ -351,6 +351,7 @@ stop_services
 check_dependencies
 clean_cache
 compile_backend
+check_frontend_deps
 start_services
 health_check
 print_result

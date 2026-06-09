@@ -40,6 +40,11 @@
         </dependency>
         <dependency>
             <groupId>com.yzhz</groupId>
+            <artifactId>poker-server-module-club-biz-config</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yzhz</groupId>
             <artifactId>poker-server-module-event</artifactId>
             <version>${revision}</version>
         </dependency>
