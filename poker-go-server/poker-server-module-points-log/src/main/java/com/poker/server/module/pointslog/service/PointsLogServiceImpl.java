@@ -2,6 +2,7 @@ package com.poker.server.module.pointslog.service;
 
 import com.poker.server.framework.common.pojo.PageResult;
 import com.poker.server.framework.common.util.object.BeanUtils;
+import com.poker.server.framework.mybatis.core.query.LambdaQueryWrapperX;
 import com.poker.server.module.pointslog.controller.admin.vo.PointsLogPageReqVO;
 import com.poker.server.module.pointslog.controller.admin.vo.PointsLogSaveReqVO;
 import com.poker.server.module.pointslog.dal.dataobject.PointsLogDO;
@@ -24,10 +25,10 @@ public class PointsLogServiceImpl implements PointsLogService {
 
     @Override
     public Long createPointsLog(PointsLogSaveReqVO createReqVO) {
-        PointsLogDO latest = pointsLogMapper.selectOne(
-                PointsLogDO::getUserId, createReqVO.getUserId(),
-                PointsLogDO::getClubId, createReqVO.getClubId(),
-                wrapper -> wrapper.orderByDesc(PointsLogDO::getId));
+        PointsLogDO latest = pointsLogMapper.selectOne(new LambdaQueryWrapperX<PointsLogDO>()
+                .eq(PointsLogDO::getUserId, createReqVO.getUserId())
+                .eq(PointsLogDO::getClubId, createReqVO.getClubId())
+                .orderByDesc(PointsLogDO::getId));
         Integer balanceBefore = (latest != null) ? latest.getBalanceAfter() : 0;
         PointsLogDO pointsLog = BeanUtils.toBean(createReqVO, PointsLogDO.class);
         pointsLog.setBalanceBefore(balanceBefore);
@@ -43,10 +44,10 @@ public class PointsLogServiceImpl implements PointsLogService {
 
     @Override
     public Map<String, Object> getUserPointsSummary(Long userId, Long clubId) {
-        PointsLogDO latest = pointsLogMapper.selectOne(
-                PointsLogDO::getUserId, userId,
-                PointsLogDO::getClubId, clubId,
-                wrapper -> wrapper.orderByDesc(PointsLogDO::getId));
+        PointsLogDO latest = pointsLogMapper.selectOne(new LambdaQueryWrapperX<PointsLogDO>()
+                .eq(PointsLogDO::getUserId, userId)
+                .eq(PointsLogDO::getClubId, clubId)
+                .orderByDesc(PointsLogDO::getId));
         Integer currentBalance = (latest != null) ? latest.getBalanceAfter() : 0;
         Map<String, Object> summary = new HashMap<>();
         summary.put("userId", userId);

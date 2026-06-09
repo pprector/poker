@@ -69,7 +69,7 @@ public class ClubUserController {
     @PreAuthorize("@ss.hasPermission('club-user:query')")
     public CommonResult<List<ClubUserRespVO>> getClubUsersByClubId(@PathVariable("clubId") Long clubId) {
         List<ClubUserDO> list = clubUserService.getClubUsersByClubId(clubId);
-        return CommonResult.success(BeanUtils.toBeanList(list, ClubUserRespVO.class));
+        return CommonResult.success(BeanUtils.toBean(list, ClubUserRespVO.class));
     }
 
     @GetMapping("/get-by-user/{userId}")

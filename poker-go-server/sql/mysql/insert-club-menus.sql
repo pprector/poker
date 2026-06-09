@@ -19,13 +19,6 @@ INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, sta
 INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7023, '经营配置修改', 'club-biz-config:update', 3, 3, 7020, 0);
 INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7024, '经营配置删除', 'club-biz-config:delete', 3, 4, 7020, 0);
 
--- 积分流水 二级菜单
-INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, component, component_name, icon, status) VALUES (7050, '积分流水', '', 2, 3, 7000, 'poker/points-log/index', 'PokerPointsLog', 'ep:coin', 0);
-
--- 积分流水 CRUD 按钮权限
-INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7051, '积分流水查询', 'points-log:query', 3, 1, 7050, 0);
-INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7052, '积分流水创建', 'points-log:create', 3, 2, 7050, 0);
-
 -- 俱乐部用户 二级菜单
 INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, component, component_name, icon, status) VALUES (7030, '俱乐部用户', '', 2, 3, 7000, 'poker/club-user/index', 'PokerClubUser', 'ep:user', 0);
 
@@ -43,3 +36,18 @@ INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, sta
 INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7042, '赛事活动创建', 'event:create', 3, 2, 7040, 0);
 INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7043, '赛事活动修改', 'event:update', 3, 3, 7040, 0);
 INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7044, '赛事活动删除', 'event:delete', 3, 4, 7040, 0);
+
+-- 积分流水 二级菜单
+INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, component, component_name, icon, status) VALUES (7050, '积分流水', '', 2, 5, 7000, 'poker/points-log/index', 'PokerPointsLog', 'ep:coin', 0);
+
+-- 积分流水 CRUD 按钮权限
+INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7051, '积分流水查询', 'points-log:query', 3, 1, 7050, 0);
+INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7052, '积分流水创建', 'points-log:create', 3, 2, 7050, 0);
+
+-- 储值记录 二级菜单
+INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, component, component_name, icon, status) VALUES (7060, '储值记录', '', 2, 6, 7000, 'poker/recharge-record/index', 'PokerRechargeRecord', 'ep:coin', 0);
+
+-- 储值记录 CRUD 按钮权限
+INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7061, '储值记录查询', 'recharge:query', 3, 1, 7060, 0);
+INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7062, '储值记录创建', 'recharge:create', 3, 2, 7060, 0);
+INSERT IGNORE INTO system_menu (id, name, permission, type, sort, parent_id, status) VALUES (7063, '储值记录确认', 'recharge:update', 3, 3, 7060, 0);
