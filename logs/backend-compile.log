@@ -1,0 +1,76 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/opt/homebrew/Cellar/maven/3.9.11/libexec/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[ERROR] COMPILATION ERROR : 
+[ERROR] /Users/peng/poker/poker-go-server/poker-server-module-points-log/src/main/java/com/poker/server/module/pointslog/service/PointsLogServiceImpl.java:[27,45] 对于selectOne(PointsLogD[...]serId,java.lang.Long,PointsLogD[...]lubId,java.lang.Long,(wrapper)-[...]etId)), 找不到合适的方法
+    方法 com.baomidou.mybatisplus.core.mapper.BaseMapper.selectOne(com.baomidou.mybatisplus.core.conditions.Wrapper<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO>)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.baomidou.mybatisplus.core.mapper.BaseMapper.selectOne(com.baomidou.mybatisplus.core.conditions.Wrapper<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO>,boolean)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(java.lang.String,java.lang.Object)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(java.lang.String,java.lang.Object,java.lang.String,java.lang.Object)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+      (实际参数列表和形式参数列表长度不同)
+[ERROR] /Users/peng/poker/poker-go-server/poker-server-module-points-log/src/main/java/com/poker/server/module/pointslog/service/PointsLogServiceImpl.java:[46,45] 对于selectOne(PointsLogD[...]serId,java.lang.Long,PointsLogD[...]lubId,java.lang.Long,(wrapper)-[...]etId)), 找不到合适的方法
+    方法 com.baomidou.mybatisplus.core.mapper.BaseMapper.selectOne(com.baomidou.mybatisplus.core.conditions.Wrapper<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO>)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.baomidou.mybatisplus.core.mapper.BaseMapper.selectOne(com.baomidou.mybatisplus.core.conditions.Wrapper<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO>,boolean)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(java.lang.String,java.lang.Object)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(java.lang.String,java.lang.Object,java.lang.String,java.lang.Object)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+      (实际参数列表和形式参数列表长度不同)
+    方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+      (实际参数列表和形式参数列表长度不同)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.14.0:compile (default-compile) on project poker-server-module-points-log: Compilation failure: Compilation failure: 
+[ERROR] /Users/peng/poker/poker-go-server/poker-server-module-points-log/src/main/java/com/poker/server/module/pointslog/service/PointsLogServiceImpl.java:[27,45] 对于selectOne(PointsLogD[...]serId,java.lang.Long,PointsLogD[...]lubId,java.lang.Long,(wrapper)-[...]etId)), 找不到合适的方法
+[ERROR]     方法 com.baomidou.mybatisplus.core.mapper.BaseMapper.selectOne(com.baomidou.mybatisplus.core.conditions.Wrapper<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO>)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.baomidou.mybatisplus.core.mapper.BaseMapper.selectOne(com.baomidou.mybatisplus.core.conditions.Wrapper<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO>,boolean)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(java.lang.String,java.lang.Object)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(java.lang.String,java.lang.Object,java.lang.String,java.lang.Object)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR] /Users/peng/poker/poker-go-server/poker-server-module-points-log/src/main/java/com/poker/server/module/pointslog/service/PointsLogServiceImpl.java:[46,45] 对于selectOne(PointsLogD[...]serId,java.lang.Long,PointsLogD[...]lubId,java.lang.Long,(wrapper)-[...]etId)), 找不到合适的方法
+[ERROR]     方法 com.baomidou.mybatisplus.core.mapper.BaseMapper.selectOne(com.baomidou.mybatisplus.core.conditions.Wrapper<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO>)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.baomidou.mybatisplus.core.mapper.BaseMapper.selectOne(com.baomidou.mybatisplus.core.conditions.Wrapper<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO>,boolean)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(java.lang.String,java.lang.Object)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(java.lang.String,java.lang.Object,java.lang.String,java.lang.Object)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR]     方法 com.poker.server.framework.mybatis.core.mapper.BaseMapperX.selectOne(com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object,com.baomidou.mybatisplus.core.toolkit.support.SFunction<com.poker.server.module.pointslog.dal.dataobject.PointsLogDO,?>,java.lang.Object)不适用
+[ERROR]       (实际参数列表和形式参数列表长度不同)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :poker-server-module-points-log

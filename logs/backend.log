@@ -1,0 +1,51 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/opt/homebrew/Cellar/maven/3.9.11/libexec/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.yzhz:poker-server-server >--------------------
+[INFO] Building poker-server-server 2026.05-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.9:run (default-cli) > test-compile @ poker-server-server >>>
+[WARNING] The POM for com.yzhz:poker-server-module-points-log:jar:2026.05-SNAPSHOT is missing, no dependency information available
+Downloading from huaweicloud: https://mirrors.huaweicloud.com/repository/maven/com/yzhz/poker-server-module-recharge/2026.05-SNAPSHOT/maven-metadata.xml
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/yzhz/poker-server-module-recharge/2026.05-SNAPSHOT/maven-metadata.xml
+Downloading from huaweicloud: https://mirrors.huaweicloud.com/repository/maven/com/yzhz/poker-server-module-recharge/2026.05-SNAPSHOT/poker-server-module-recharge-2026.05-SNAPSHOT.pom
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/yzhz/poker-server-module-recharge/2026.05-SNAPSHOT/poker-server-module-recharge-2026.05-SNAPSHOT.pom
+[WARNING] The POM for com.yzhz:poker-server-module-recharge:jar:2026.05-SNAPSHOT is missing, no dependency information available
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/yzhz/poker-server-module-club-user/2026.05-SNAPSHOT/maven-metadata.xml
+Downloading from huaweicloud: https://mirrors.huaweicloud.com/repository/maven/com/yzhz/poker-server-module-club-user/2026.05-SNAPSHOT/maven-metadata.xml
+Downloading from huaweicloud: https://mirrors.huaweicloud.com/repository/maven/com/yzhz/poker-server-module-club-user/2026.05-SNAPSHOT/poker-server-module-club-user-2026.05-SNAPSHOT.pom
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/yzhz/poker-server-module-club-user/2026.05-SNAPSHOT/poker-server-module-club-user-2026.05-SNAPSHOT.pom
+[WARNING] The POM for com.yzhz:poker-server-module-club-user:jar:2026.05-SNAPSHOT is missing, no dependency information available
+Downloading from huaweicloud: https://mirrors.huaweicloud.com/repository/maven/com/yzhz/poker-server-module-recharge/2026.05-SNAPSHOT/poker-server-module-recharge-2026.05-SNAPSHOT.jar
+Downloading from huaweicloud: https://mirrors.huaweicloud.com/repository/maven/com/yzhz/poker-server-module-club-user/2026.05-SNAPSHOT/poker-server-module-club-user-2026.05-SNAPSHOT.jar
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/yzhz/poker-server-module-recharge/2026.05-SNAPSHOT/poker-server-module-recharge-2026.05-SNAPSHOT.jar
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/yzhz/poker-server-module-club-user/2026.05-SNAPSHOT/poker-server-module-club-user-2026.05-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.789 s
+[INFO] Finished at: 2026-06-09T20:58:23+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project poker-server-server: Could not resolve dependencies for project com.yzhz:poker-server-server:jar:2026.05-SNAPSHOT
+[ERROR] dependency: com.yzhz:poker-server-module-points-log:jar:2026.05-SNAPSHOT (compile)
+[ERROR] 	com.yzhz:poker-server-module-points-log:jar:2026.05-SNAPSHOT was not found in https://mirrors.huaweicloud.com/repository/maven/ during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of huaweicloud has elapsed or updates are forced
+[ERROR] 	com.yzhz:poker-server-module-points-log:jar:2026.05-SNAPSHOT was not found in https://maven.aliyun.com/repository/public during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of aliyunmaven has elapsed or updates are forced
+[ERROR] dependency: com.yzhz:poker-server-module-recharge:jar:2026.05-SNAPSHOT (compile)
+[ERROR] 	Could not find artifact com.yzhz:poker-server-module-recharge:jar:2026.05-SNAPSHOT in huaweicloud (https://mirrors.huaweicloud.com/repository/maven/)
+[ERROR] 	Could not find artifact com.yzhz:poker-server-module-recharge:jar:2026.05-SNAPSHOT in aliyunmaven (https://maven.aliyun.com/repository/public)
+[ERROR] dependency: com.yzhz:poker-server-module-club-user:jar:2026.05-SNAPSHOT (compile)
+[ERROR] 	Could not find artifact com.yzhz:poker-server-module-club-user:jar:2026.05-SNAPSHOT in huaweicloud (https://mirrors.huaweicloud.com/repository/maven/)
+[ERROR] 	Could not find artifact com.yzhz:poker-server-module-club-user:jar:2026.05-SNAPSHOT in aliyunmaven (https://maven.aliyun.com/repository/public)
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException

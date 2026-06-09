@@ -1,0 +1,62 @@
+server:
+  port: 48081
+
+spring:
+  profiles:
+    include: test
+
+  # H2 内存数据库，替代 MySQL
+  datasource:
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          url: jdbc:h2:mem:pokergo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
+          driver-class-name: org.h2.Driver
+          username: sa
+          password:
+        slave:
+          lazy: true
+          url: jdbc:h2:mem:pokergo_slave;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
+          driver-class-name: org.h2.Driver
+          username: sa
+          password:
+
+  # H2 兼容 MySQL 模式
+  h2:
+    console:
+      enabled: false
+
+  # 禁用 Quartz，测试环境不需要
+  quartz:
+    auto-startup: false
+
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      database: 0
+
+# 禁用 AI 相关自动配置，测试环境不需要
+poker-server:
+  api-encrypt:
+    enable: false
+  captcha:
+    enable: false
+  security:
+    mock-enable: true
+  access-log:
+    enable: false
+  demo: false
+  tenant:
+    enable: true
+  codegen:
+    unit-test-enable: true
+    import-enable: true
+
+debug: false
+
+logging:
+  level:
+    com.poker.server: DEBUG
+    org.springframework.jdbc: DEBUG
