@@ -26,6 +26,9 @@
         <module>poker-server-module-compliance</module>
         <module>poker-server-module-leaderboard</module>
         <module>poker-server-module-notification</module>
+        <module>poker-server-module-points-log</module>
+        <module>poker-server-module-club-user</module>
+        <module>poker-server-module-recharge</module>
     </modules>
 
     <name>${project.artifactId}</name>

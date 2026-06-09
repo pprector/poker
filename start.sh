@@ -2,8 +2,14 @@
 
 # ==========================================
 #  PokerGo 项目快速启动/重启脚本
-#  流程：停止服务 → 检查依赖 → 清理缓存
-#        → 编译 → 启动 → 健康检查
+#  流程：停止服务 → 检查依赖 → 编译后端
+#        → 启动 → 健康检查
+#
+#  优化说明：
+#  - 保留 Maven 增量编译（去掉 mvn clean）
+#  - 保留 Vite/Turbo 缓存（加快前端启动）
+#  - 修复前端端口为实际值 5173
+#  - 后端编译与前端依赖检查并行执行
 # ==========================================
 
 RED='\033[0;31m'
@@ -28,7 +34,7 @@ mkdir -p "$LOG_DIR"
 
 print_banner() {
     echo -e "${BLUE}========================================${NC}"
-    echo -e "${BLUE}  PokerGo 项目启动/重启脚本${NC}"
+    echo -e "${BLUE}  PokerGo 项目快速启动${NC}"
     echo -e "${BLUE}========================================${NC}"
     echo ""
 }
@@ -55,24 +61,20 @@ kill_port() {
     fi
 }
 
-# 杀死所有残留的开发进程
-kill_dev_processes() {
-    local pids
-    pids=$(ps aux | grep -E "(vite.*dev|spring-boot:run)" | grep -v grep | awk '{print $2}' || true)
-    if [ -n "$pids" ]; then
-        echo "  清理残留开发进程..."
-        kill -9 $pids 2>/dev/null || true
-    fi
-}
-
 # ==========================================
 # 步骤 1：停止现有服务
 # ==========================================
 stop_services() {
-    echo -e "${YELLOW}[1/6] 停止现有服务...${NC}"
+    echo -e "${YELLOW}[1/5] 停止现有服务...${NC}"
     kill_port $BACKEND_PORT "后端服务"
     kill_port $FRONTEND_PORT "前端服务"
-    kill_dev_processes
+
+    # 清理残留 Spring Boot / Vite 进程
+    local pids
+    pids=$(ps aux | grep -E "(vite.*dev|spring-boot:run)" | grep -v grep | awk '{print $2}' || true)
+    if [ -n "$pids" ]; then
+        kill -9 $pids 2>/dev/null || true
+    fi
     echo ""
 }
 
@@ -80,12 +82,11 @@ stop_services() {
 # 步骤 2：检查依赖（MySQL + Redis）
 # ==========================================
 check_dependencies() {
-    echo -e "${YELLOW}[2/6] 检查依赖服务...${NC}"
+    echo -e "${YELLOW}[2/5] 检查依赖服务...${NC}"
 
     local mysql_ok=false
     local redis_ok=false
 
-    # 检测端口是否可达（通过 nc 或 /dev/tcp）
     check_port() {
         local host=$1 port=$2
         if command -v nc &>/dev/null; then
@@ -100,7 +101,6 @@ check_dependencies() {
         mysql_ok=true
     fi
 
-    # 端口不通时尝试 Docker 启动
     if [ "$mysql_ok" = false ] && command -v docker &>/dev/null; then
         if docker ps -a --format '{{.Names}}' | grep -q "pokergo-mysql"; then
             echo "  检测到 Docker 容器 pokergo-mysql，正在启动..."
@@ -158,11 +158,11 @@ check_dependencies() {
 
     echo ""
     if [ "$mysql_ok" = false ]; then
-        echo -e "${RED}  ⚠ MySQL 未就绪，请检查 Docker 或手动启动${NC}"
+        echo -e "${RED}  ⚠ MySQL 未就绪${NC}"
         echo -e "     ${YELLOW}docker start pokergo-mysql${NC}"
     fi
     if [ "$redis_ok" = false ]; then
-        echo -e "${RED}  ⚠ Redis 未就绪，请检查 Docker 或手动启动${NC}"
+        echo -e "${RED}  ⚠ Redis 未就绪${NC}"
         echo -e "     ${YELLOW}docker start pokergo-redis${NC}"
     fi
     if [ "$mysql_ok" = false ] || [ "$redis_ok" = false ]; then
@@ -171,82 +171,57 @@ check_dependencies() {
 }
 
 # ==========================================
-# 步骤 3：清理缓存
+# 步骤 3：编译后端 + 检查前端依赖（并行）
 # ==========================================
-clean_cache() {
-    echo -e "${YELLOW}[3/6] 清理缓存...${NC}"
+compile_and_check_deps() {
+    echo -e "${YELLOW}[3/5] 编译后端 + 检查前端依赖（并行执行）...${NC}"
 
-    echo "  清理后端 Maven 缓存..."
-    cd "$BACKEND_DIR" || exit 1
-    mvn clean -q 2>/dev/null || true
-    find "$BACKEND_DIR" -name "target" -type d -maxdepth 3 -exec rm -rf {} + 2>/dev/null || true
-    echo "  后端缓存清理完成"
-
-    echo "  清理前端 Vite 缓存..."
-    cd "$FRONTEND_DIR" || exit 1
-    rm -rf apps/*/node_modules/.vite 2>/dev/null || true
-    rm -rf packages/*/node_modules/.vite 2>/dev/null || true
-    rm -rf internal/*/node_modules/.vite 2>/dev/null || true
-    rm -rf .turbo 2>/dev/null || true
-    rm -rf apps/*/dist 2>/dev/null || true
-    echo "  前端缓存清理完成"
-    echo ""
-}
-
-# ==========================================
-# 步骤 4：编译后端
-# ==========================================
-compile_backend() {
-    echo -e "${YELLOW}[4/6] 编译后端代码...${NC}"
-    cd "$BACKEND_DIR" || exit 1
-
-    echo "  执行 mvn compile -pl poker-server-server -am..."
-    mvn compile -pl poker-server-server -am > "$LOG_DIR/backend-compile.log" 2>&1
-    local exit_code=$?
-    if [ $exit_code -eq 0 ]; then
-        echo -e "  后端编译 ${GREEN}✓ 成功${NC}"
-    else
-        echo -e "  后端编译 ${RED}✗ 失败 (退出码: $exit_code)${NC}"
-        echo -e "  ${YELLOW}  请查看编译日志:${NC}"
-        tail -40 "$LOG_DIR/backend-compile.log"
-        exit 1
-    fi
-    echo ""
-}
-
-# ==========================================
-# 步骤 5：检查前端依赖
-# ==========================================
-check_frontend_deps() {
-    echo -e "${YELLOW}[5/6] 检查前端依赖...${NC}"
-    cd "$FRONTEND_DIR" || exit 1
-
-    if [ ! -d "node_modules" ]; then
-        echo "  node_modules 不存在，执行 pnpm install..."
-        pnpm install > "$LOG_DIR/frontend-install.log" 2>&1
+    # 并行：后端编译 & 前端依赖检查
+    (
+        echo "  [后端] 增量编译 poker-server-server..."
+        cd "$BACKEND_DIR" || exit 1
+        mvn compile -pl poker-server-server -am -q > "$LOG_DIR/backend-compile.log" 2>&1
         local exit_code=$?
         if [ $exit_code -eq 0 ]; then
-            echo -e "  前端依赖安装 ${GREEN}✓ 成功${NC}"
+            echo -e "  [后端] ${GREEN}✓ 编译成功${NC}"
         else
-            echo -e "  前端依赖安装 ${RED}✗ 失败 (退出码: $exit_code)${NC}"
-            echo -e "  ${YELLOW}  请查看安装日志:${NC}"
-            tail -40 "$LOG_DIR/frontend-install.log"
+            echo -e "  [后端] ${RED}✗ 编译失败 (退出码: $exit_code)${NC}"
+            tail -40 "$LOG_DIR/backend-compile.log"
             exit 1
         fi
-    else
-        echo "  node_modules 已存在，跳过安装"
-    fi
+    ) &
+
+    (
+        echo "  [前端] 检查 node_modules..."
+        cd "$FRONTEND_DIR" || exit 1
+        if [ ! -d "node_modules" ]; then
+            echo "  [前端] node_modules 不存在，执行 pnpm install..."
+            pnpm install > "$LOG_DIR/frontend-install.log" 2>&1
+            local exit_code=$?
+            if [ $exit_code -eq 0 ]; then
+                echo -e "  [前端] ${GREEN}✓ 依赖安装成功${NC}"
+            else
+                echo -e "  [前端] ${RED}✗ 依赖安装失败${NC}"
+                tail -40 "$LOG_DIR/frontend-install.log"
+                exit 1
+            fi
+        else
+            echo -e "  [前端] ${GREEN}✓ node_modules 已存在${NC}"
+        fi
+    ) &
+
+    wait
     echo ""
 }
 
 # ==========================================
-# 步骤 6：启动服务
+# 步骤 4：启动服务（并行）
 # ==========================================
 start_services() {
-    echo -e "${YELLOW}[6/7] 启动服务...${NC}"
+    echo -e "${YELLOW}[4/5] 启动服务...${NC}"
 
     # 启动后端
-    echo "  启动后端服务 (端口: $BACKEND_PORT, profile: local)..."
+    echo "  启动后端服务 (端口: $BACKEND_PORT)..."
     cd "$BACKEND_DIR" || exit 1
     nohup mvn spring-boot:run \
         -pl poker-server-server \
@@ -265,17 +240,17 @@ start_services() {
 }
 
 # ==========================================
-# 步骤 6：健康检查
+# 步骤 5：健康检查
 # ==========================================
 health_check() {
-    echo -e "${YELLOW}[7/7] 健康检查...${NC}"
+    echo -e "${YELLOW}[5/5] 健康检查...${NC}"
 
     # 后端健康检查（最长等待 120 秒）
     echo -n "  等待后端服务启动"
-    local success=false
+    local backend_ok=false
     for i in $(seq 1 60); do
         if curl -s -o /dev/null -w "%{http_code}" "$HEALTH_CHECK_URL" 2>/dev/null | grep -q "200"; then
-            success=true
+            backend_ok=true
             echo ""
             echo -e "  ${GREEN}后端服务启动成功 ✓${NC}"
             break
@@ -284,7 +259,7 @@ health_check() {
         sleep 2
     done
 
-    if [ "$success" = false ]; then
+    if [ "$backend_ok" = false ]; then
         echo ""
         echo -e "  ${RED}后端服务启动超时，请查看日志: ${LOG_DIR}/backend.log${NC}"
         tail -20 "$LOG_DIR/backend.log"
@@ -306,7 +281,7 @@ health_check() {
     if [ "$frontend_ok" = false ]; then
         echo ""
         echo -e "  ${RED}前端服务启动超时，请查看日志: ${LOG_DIR}/frontend.log${NC}"
-        tail -20 "$LOG_DIR/frontend.log"
+        tail -10 "$LOG_DIR/frontend.log"
     fi
     echo ""
 }
@@ -349,9 +324,7 @@ print_result() {
 print_banner
 stop_services
 check_dependencies
-clean_cache
-compile_backend
-check_frontend_deps
+compile_and_check_deps
 start_services
 health_check
 print_result

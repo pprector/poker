@@ -83,6 +83,21 @@
             <artifactId>poker-server-module-notification</artifactId>
             <version>${revision}</version>
         </dependency>
+        <dependency>
+            <groupId>com.yzhz</groupId>
+            <artifactId>poker-server-module-points-log</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yzhz</groupId>
+            <artifactId>poker-server-module-recharge</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yzhz</groupId>
+            <artifactId>poker-server-module-club-user</artifactId>
+            <version>${revision}</version>
+        </dependency>
 
         <!-- 会员中心。默认注释，保证编译速度 -->
 <!--        <dependency>-->

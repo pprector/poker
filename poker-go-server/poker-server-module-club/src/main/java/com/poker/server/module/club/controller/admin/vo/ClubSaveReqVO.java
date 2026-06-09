@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class ClubSaveReqVO {
 
-    @Schema(description = "门店编号", requiredMode = Schema.RequiredMode.REQUIRED, example = "1")
+    @Schema(description = "门店编号", example = "1")
     private Long id;
 
     @Schema(description = "门店名称", requiredMode = Schema.RequiredMode.REQUIRED, example = "老友精酿扑克吧")
@@ -23,9 +23,30 @@ public class ClubSaveReqVO {
     @NotNull(message = "联系电话不能为空")
     private String phone;
 
+    @Schema(description = "Logo图片URL", example = "https://example.com/logo.png")
+    private String logoUrl;
+
     @Schema(description = "营业时间", example = "周一至周日 18:00-02:00")
     private String openHours;
 
+    @Schema(description = "门店照片URL数组", example = "[\"https://example.com/photo1.jpg\"]")
+    private String photos;
+
     @Schema(description = "门店介绍", example = "这里不只是打牌，更是一群人的社交客厅")
     private String introText;
+
+    @Schema(description = "主题主色", example = "#667eea")
+    private String themeColor;
+
+    @Schema(description = "完整主题配置")
+    private String themeConfig;
+
+    @Schema(description = "主题模板标识", example = "night_purple")
+    private String themeTemplate;
+
+    @Schema(description = "功能模块开关")
+    private String moduleFlags;
+
+    @Schema(description = "状态", example = "1")
+    private Integer status;
 }

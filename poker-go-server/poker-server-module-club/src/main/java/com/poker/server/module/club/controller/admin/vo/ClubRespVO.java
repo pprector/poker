@@ -1,6 +1,5 @@
 package com.poker.server.module.club.controller.admin.vo;
 
-import com.poker.server.framework.common.pojo.PageParam;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
